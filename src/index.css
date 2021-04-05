@@ -22,11 +22,3 @@ body {
   border: 1px solid #ddd;
   font-size: 18px;
 }
-
-.pick-one-skip-n,
-.caesar-shift,
-.string-manipulation {
-  /* padding: 0 10px; */
-  margin-right: 5px;
-  user-select: none;
-}

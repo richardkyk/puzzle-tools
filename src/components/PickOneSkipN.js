@@ -1,6 +1,7 @@
 import React from "react";
-import { Badge, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import usePickOneSkipN from "./../hooks/usePickOneSkipN";
+import CopyBadge from "./CopyBadge";
 
 export default function PickOneSkipN({ string }) {
   const results = usePickOneSkipN(string, 9);
@@ -8,13 +9,18 @@ export default function PickOneSkipN({ string }) {
   return (
     <Card>
       <Card.Body>
-        <Card.Title>Pick one skip N</Card.Title>
+        <Card.Title>Pick one skip n</Card.Title>
         {results.map((result, i) => {
           return (
             <div key={i}>
-              <Badge pill variant="primary" className="pick-one-skip-n">
+              <CopyBadge
+                pill
+                variant="primary"
+                className="pick-one-skip-n"
+                content={result}
+              >
                 Skip {i + 1}
-              </Badge>
+              </CopyBadge>
               {result}
             </div>
           );

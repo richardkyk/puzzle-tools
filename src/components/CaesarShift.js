@@ -1,6 +1,7 @@
 import React from "react";
-import { Card, Badge } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import useCaesarShift from "./../hooks/useCaesarShift";
+import CopyBadge from "./CopyBadge";
 
 export default function CaesarShift({ string }) {
   const results = useCaesarShift(string);
@@ -12,9 +13,14 @@ export default function CaesarShift({ string }) {
         {results.map((result, i) => {
           return (
             <div key={i}>
-              <Badge pill variant="primary" className="caesar-shift">
+              <CopyBadge
+                pill
+                variant="primary"
+                className="caesar-shift"
+                content={result}
+              >
                 Shift {i + 1}
-              </Badge>
+              </CopyBadge>
               {result}
             </div>
           );

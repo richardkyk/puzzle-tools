@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Badge, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import CopyBadge from "./CopyBadge";
 
 export default function UpperCase({ string }) {
   const [toUpper, setToUpper] = useState("");
@@ -8,6 +9,15 @@ export default function UpperCase({ string }) {
   const [lowerOnly, setLowerOnly] = useState("");
   const [noPunctuation, setNoPunctuation] = useState("");
   const [uniqueChars, setUniqueChars] = useState("");
+
+  const items = [
+    { name: "To uppercase", value: toUpper },
+    { name: "To lowercase", value: toLower },
+    { name: "Uppercase only", value: upperOnly },
+    { name: "Lowercase only", value: lowerOnly },
+    { name: "No punctuation", value: noPunctuation },
+    { name: "Unique", value: uniqueChars },
+  ];
 
   function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
@@ -25,42 +35,21 @@ export default function UpperCase({ string }) {
     <Card>
       <Card.Body>
         <Card.Title>String Manipulation</Card.Title>
-        <div>
-          <Badge pill variant="primary" className="string-manipulation">
-            To uppercase
-          </Badge>
-          {toUpper}
-        </div>
-        <div>
-          <Badge pill variant="primary" className="string-manipulation">
-            To lowercase
-          </Badge>
-          {toLower}
-        </div>
-        <div>
-          <Badge pill variant="primary" className="string-manipulation">
-            Uppercase only
-          </Badge>
-          {upperOnly}
-        </div>
-        <div>
-          <Badge pill variant="primary" className="string-manipulation">
-            Lowercase only
-          </Badge>
-          {lowerOnly}
-        </div>
-        <div>
-          <Badge pill variant="primary" className="string-manipulation">
-            No punctuation
-          </Badge>
-          {noPunctuation}
-        </div>
-        <div>
-          <Badge pill variant="primary" className="string-manipulation">
-            Unique
-          </Badge>
-          {uniqueChars}
-        </div>
+        {items.map((item) => {
+          return (
+            <div key={item.name}>
+              <CopyBadge
+                pill
+                variant="primary"
+                className="string-manipulation"
+                content={item.value}
+              >
+                {item.name}
+              </CopyBadge>
+              {item.value}
+            </div>
+          );
+        })}
       </Card.Body>
     </Card>
   );
