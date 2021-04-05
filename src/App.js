@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import PickOneSkipN from "./components/PickOneSkipN";
+import CaesarShift from "./components/CaesarShift";
+import StringManipulation from "./components/StringManipulation";
 
 function App() {
+  const [string, setString] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="mt-5 d-flex justify-content-center align-items-center">
+        <textarea
+          rows="3"
+          type="textarea"
+          className="w-50 form-control"
+          onChange={(e) => setString(e.target.value)}
+        />
+      </div>
+      <div className="pt-5 d-flex">
+        <div className="w-50">
+          <PickOneSkipN string={string} />
+        </div>
+        <div className="w-50">
+          <CaesarShift string={string} />
+        </div>
+        <div className="w-50">
+          <StringManipulation string={string} />
+        </div>
+      </div>
+    </>
   );
 }
 
