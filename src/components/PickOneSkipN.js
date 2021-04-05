@@ -13,12 +13,7 @@ export default function PickOneSkipN({ string }) {
         {results.map((result, i) => {
           return (
             <div key={i}>
-              <CopyBadge
-                pill
-                variant="primary"
-                className="pick-one-skip-n"
-                content={result}
-              >
+              <CopyBadge className="pick-one-skip-n" content={result}>
                 Skip {i + 1}
               </CopyBadge>
               {result}

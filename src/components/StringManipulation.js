@@ -38,12 +38,7 @@ export default function UpperCase({ string }) {
         {items.map((item) => {
           return (
             <div key={item.name}>
-              <CopyBadge
-                pill
-                variant="primary"
-                className="string-manipulation"
-                content={item.value}
-              >
+              <CopyBadge className="string-manipulation" content={item.value}>
                 {item.name}
               </CopyBadge>
               {item.value}

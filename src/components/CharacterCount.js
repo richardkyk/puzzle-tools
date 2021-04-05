@@ -16,9 +16,7 @@ export default function CharacterCount({ chars }) {
   return (
     <Card.Body className="p-0 d-flex">
       <div>
-        <CopyBadge pill variant="primary" content={copyChars()}>
-          Char Count
-        </CopyBadge>
+        <CopyBadge content={copyChars()}>Char Count</CopyBadge>
       </div>
       <div>
         {Object.keys(chars)

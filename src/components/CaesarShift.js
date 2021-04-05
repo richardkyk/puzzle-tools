@@ -13,12 +13,7 @@ export default function CaesarShift({ string }) {
         {results.map((result, i) => {
           return (
             <div key={i}>
-              <CopyBadge
-                pill
-                variant="primary"
-                className="caesar-shift"
-                content={result}
-              >
+              <CopyBadge className="caesar-shift" content={result}>
                 Shift {i + 1}
               </CopyBadge>
               {result}

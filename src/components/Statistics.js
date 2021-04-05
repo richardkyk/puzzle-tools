@@ -16,12 +16,7 @@ export default function Statistics({ string }) {
       <Card.Body>
         <Card.Title>Statistics</Card.Title>
         <div>
-          <CopyBadge
-            pill
-            variant="primary"
-            className="statistics"
-            content={stringLength}
-          >
+          <CopyBadge className="statistics" content={stringLength}>
             Length
           </CopyBadge>
           {stringLength}
