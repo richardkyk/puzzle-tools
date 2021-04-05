@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/puzzle-tools/static/css/main.ff9e7b52.chunk.css",
+    "main.js": "/puzzle-tools/static/js/main.a87022ba.chunk.js",
+    "main.js.map": "/puzzle-tools/static/js/main.a87022ba.chunk.js.map",
+    "runtime-main.js": "/puzzle-tools/static/js/runtime-main.35ac1d3d.js",
+    "runtime-main.js.map": "/puzzle-tools/static/js/runtime-main.35ac1d3d.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/puzzle-tools/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.53267e8f.chunk.js": "/puzzle-tools/static/js/2.53267e8f.chunk.js",
+    "static/js/2.53267e8f.chunk.js.map": "/puzzle-tools/static/js/2.53267e8f.chunk.js.map",
+    "index.html": "/puzzle-tools/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/puzzle-tools/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.ff9e7b52.chunk.css.map": "/puzzle-tools/static/css/main.ff9e7b52.chunk.css.map",
+    "static/js/2.53267e8f.chunk.js.LICENSE.txt": "/puzzle-tools/static/js/2.53267e8f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.35ac1d3d.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.53267e8f.chunk.js",
+    "static/css/main.ff9e7b52.chunk.css",
+    "static/js/main.a87022ba.chunk.js"
+  ]
+}
