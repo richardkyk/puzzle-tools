@@ -24,8 +24,9 @@ export default function CharacterCount({ chars }) {
           .map((c, i) => {
             return (
               <tr key={i}>
-                <td>{c === " " ? "<space>" : c}</td>
-                <td>{chars[c]}</td>
+                <td className="pr-4">{c === " " ? "<space>" : c}</td>
+                <td className="pr-4">{chars[c]}</td>
+                <td>{"#".repeat(chars[c])}</td>
               </tr>
             );
           })}
