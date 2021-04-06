@@ -16,21 +16,23 @@ export default function CharacterCount({ chars }) {
   return (
     <Card.Body className="p-0 d-flex">
       <div>
-        <CopyBadge content={copyChars()}>Char Count</CopyBadge>
+        <CopyBadge content={copyChars()}>Char count</CopyBadge>
       </div>
-      <div>
-        {Object.keys(chars)
-          .sort()
-          .map((c, i) => {
-            return (
-              <tr key={i}>
-                <td className="pr-4">{c === " " ? "<space>" : c}</td>
-                <td className="pr-4">{chars[c]}</td>
-                <td>{"#".repeat(chars[c])}</td>
-              </tr>
-            );
-          })}
-      </div>
+      <table>
+        <tbody>
+          {Object.keys(chars)
+            .sort()
+            .map((c, i) => {
+              return (
+                <tr key={i}>
+                  <td className="pr-4">{c === " " ? "<space>" : c}</td>
+                  <td className="pr-4">{chars[c]}</td>
+                  <td>{"#".repeat(chars[c])}</td>
+                </tr>
+              );
+            })}
+        </tbody>
+      </table>
     </Card.Body>
   );
 }

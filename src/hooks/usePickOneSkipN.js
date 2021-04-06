@@ -16,7 +16,7 @@ export default function usePickOneSkipN(string, n) {
         tempString = tempString.slice(0, i) + tempString.slice(i + 1);
         i += j - 1;
       }
-      output.push(out);
+      output.push({ value: out, skip: j - 1 });
     }
     setResults(output);
   }, [string, n]);

@@ -7,7 +7,7 @@ export default function useCaesarShift(string) {
 
   useEffect(() => {
     const output = [];
-    for (let i = 1; i <= 26; i++) {
+    for (let i = 0; i < 26; i++) {
       let out = "";
       for (const char of string) {
         if (alphabet.includes(char.toUpperCase())) {
@@ -21,7 +21,7 @@ export default function useCaesarShift(string) {
           out += char;
         }
       }
-      output.push(out);
+      output.push({ value: out, shift: i });
     }
     setResults(output);
   }, [string, alphabet]);
