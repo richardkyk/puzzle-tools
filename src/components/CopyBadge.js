@@ -8,7 +8,6 @@ export default function CopyBadge({ children, content }) {
   }
   return (
     <Badge
-      pill
       variant="primary"
       onClick={() => copyChildren()}
       className="mr-2"

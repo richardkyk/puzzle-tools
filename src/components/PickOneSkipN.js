@@ -9,19 +9,28 @@ export default function PickOneSkipN({ string }) {
   const rankedResults = useEnglishRanking(results);
 
   return (
-    <Card>
+    <Card className="m-2 mb-3" border="primary">
+      <Card.Header>Pick one skip n</Card.Header>
       <Card.Body>
-        <Card.Title>Pick one skip n</Card.Title>
-        {rankedResults.map((result, i) => {
-          return (
-            <div key={i}>
-              <CopyBadge className="pick-one-skip-n" content={result.value}>
-                Skip {result.skip}
-              </CopyBadge>
-              {result.value}
-            </div>
-          );
-        })}
+        <table>
+          <tbody>
+            {rankedResults.map((result, i) => {
+              return (
+                <tr key={i}>
+                  <td>
+                    <CopyBadge
+                      className="pick-one-skip-n"
+                      content={result.value}
+                    >
+                      Skip {result.skip}
+                    </CopyBadge>
+                  </td>
+                  <td>{result.value}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </Card.Body>
     </Card>
   );

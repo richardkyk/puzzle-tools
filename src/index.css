@@ -6,6 +6,7 @@
 
 body {
   height: 100vh;
+  /* background: #e0e0e0 !important; */
 }
 
 .hover {
@@ -21,4 +22,25 @@ body {
   height: 32px;
   border: 1px solid #ddd;
   font-size: 18px;
+}
+
+td {
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  width: auto;
+}
+.my-masonry-grid_column {
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.my-masonry-grid_column > div {
+  /* change div to reference your elements you put in <Masonry> */
+  margin-bottom: 30px;
 }

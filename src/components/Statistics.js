@@ -12,18 +12,24 @@ export default function Statistics({ string }) {
     setStringLength(string.length);
   }, [string]);
   return (
-    <Card>
+    <Card className="m-2 mb-3" border="primary">
+      <Card.Header>Statistics</Card.Header>
       <Card.Body>
-        <Card.Title>Statistics</Card.Title>
-        <div>
-          <CopyBadge className="statistics" content={stringLength}>
-            Length
-          </CopyBadge>
-          {stringLength}
-        </div>
-        <div>
-          <CharacterCount chars={charCount} />
-        </div>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <CopyBadge className="statistics" content={stringLength}>
+                  Length
+                </CopyBadge>
+              </td>
+              <td>{stringLength}</td>
+            </tr>
+            <tr>
+              <CharacterCount chars={charCount} />
+            </tr>
+          </tbody>
+        </table>
       </Card.Body>
     </Card>
   );

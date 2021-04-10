@@ -9,19 +9,25 @@ export default function CaesarShift({ string }) {
   const rankedResults = useEnglishRanking(results);
 
   return (
-    <Card>
+    <Card className="m-2 mb-3" border="primary">
+      <Card.Header>Caesar Shift</Card.Header>
       <Card.Body>
-        <Card.Title>Caesar Shift</Card.Title>
-        {rankedResults.map((result, i) => {
-          return (
-            <div key={i}>
-              <CopyBadge className="caesar-shift" content={result.value}>
-                Shift {result.shift}
-              </CopyBadge>
-              {result.value}
-            </div>
-          );
-        })}
+        <table>
+          <tbody>
+            {rankedResults.map((result, i) => {
+              return (
+                <tr key={i}>
+                  <td>
+                    <CopyBadge className="caesar-shift" content={result.value}>
+                      Shift {result.shift}
+                    </CopyBadge>
+                  </td>
+                  <td>{result.value}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </Card.Body>
     </Card>
   );
