@@ -1,14 +1,27 @@
-import { useState } from "react";
 import PickOneSkipN from "./components/PickOneSkipN";
 import CaesarShift from "./components/CaesarShift";
 import StringManipulation from "./components/StringManipulation";
 import Statistics from "./components/Statistics";
-import { Card, Col, Row, Container } from "react-bootstrap";
+import {
+  Card,
+  Col,
+  Row,
+  Container,
+  Button,
+  ButtonGroup,
+} from "react-bootstrap";
 import Masonry from "react-masonry-css";
+import { useString } from "./contexts/StringContext";
 
 function App() {
-  const [string, setString] = useState("");
-
+  const {
+    string,
+    setString,
+    canUndo,
+    undoString,
+    canRedo,
+    redoString,
+  } = useString();
   const breakpointColumnsObj = {
     default: 3,
     1100: 2,
@@ -28,9 +41,28 @@ function App() {
               rows="2"
               type="textarea"
               className="form-control"
+              value={string}
               onChange={(e) => setString(e.target.value)}
             />
           </Card>
+
+          <ButtonGroup className="ml-2" size="sm">
+            <Button
+              className="mr-2"
+              variant="outline-primary"
+              disabled={!canUndo}
+              onClick={undoString}
+            >
+              {"<"}
+            </Button>
+            <Button
+              variant="outline-primary"
+              disabled={!canRedo}
+              onClick={redoString}
+            >
+              {">"}
+            </Button>
+          </ButtonGroup>
         </Col>
       </Row>
       <Masonry
@@ -46,37 +78,6 @@ function App() {
         ]}
       </Masonry>
     </Container>
-    // <Container fluid>
-    //   <Row xs={1} md={2} xl={3} noGutters>
-    //     <Col
-    //       xs={{ span: 12 }}
-    //       md={{ span: 8, offset: 2 }}
-    //       xl={{ span: 6, offset: 3 }}
-    //     >
-    //       <Card className="m-2 mt-3" border="primary">
-    //         <textarea
-    //           rows="2"
-    //           type="textarea"
-    //           className="form-control"
-    //           onChange={(e) => setString(e.target.value)}
-    //         />
-    //       </Card>
-    //     </Col>
-    //     <Col>
-    //       <Statistics string={string} />
-    //     </Col>
-    //     <Col>
-    //       <StringManipulation string={string} />
-    //     </Col>
-
-    //     <Col>
-    //       <PickOneSkipN string={string} />
-    //     </Col>
-    //     <Col>
-    //       <CaesarShift string={string} />
-    //     </Col>
-    //   </Row>
-    // </Container>
   );
 }
 
