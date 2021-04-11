@@ -41,7 +41,7 @@ export default function CharacterCount({ chars }) {
                         : c}
                     </td>
                     <td className="pr-4">{chars[c]}</td>
-                    <td>{"#".repeat(chars[c])}</td>
+                    <td className="content">{"#".repeat(chars[c])}</td>
                   </tr>
                 );
               })}

@@ -25,7 +25,7 @@ export default function PickOneSkipN({ string }) {
                       Skip {result.skip}
                     </CopyBadge>
                   </td>
-                  <td>{result.value}</td>
+                  <td className="content">{result.value}</td>
                 </tr>
               );
             })}

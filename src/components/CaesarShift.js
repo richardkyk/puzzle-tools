@@ -22,7 +22,7 @@ export default function CaesarShift({ string }) {
                       Shift {result.shift}
                     </CopyBadge>
                   </td>
-                  <td>{result.value}</td>
+                  <td className="content">{result.value}</td>
                 </tr>
               );
             })}

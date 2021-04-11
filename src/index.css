@@ -24,9 +24,12 @@ body {
   font-size: 18px;
 }
 
+td.content {
+  overflow-wrap: anywhere;
+}
+
 td {
   vertical-align: top;
-  overflow-wrap: anywhere;
 }
 
 .my-masonry-grid {

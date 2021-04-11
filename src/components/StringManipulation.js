@@ -4,25 +4,32 @@ import CopyBadge from "./CopyBadge";
 
 export default function UpperCase({ string }) {
   const [toUpper, setToUpper] = useState("");
-  const [toLower, setToLower] = useState("");
   const [upperOnly, setUpperOnly] = useState("");
+  const [toLower, setToLower] = useState("");
   const [lowerOnly, setLowerOnly] = useState("");
-  const [noPunctuation, setNoPunctuation] = useState("");
+  const [noAlphanumeric, setNoAlphanumeric] = useState("");
+  const [alphanumericOnly, setAlphanumericOnly] = useState("");
+
   const [uniqueChars, setUniqueChars] = useState("");
   const [evenChars, setEvenChars] = useState("");
   const [oddChars, setOddChars] = useState("");
   const [reversed, setReversed] = useState("");
+  const [ordered, setOrdered] = useState("");
+  const [nonUniqueChars, setNonUniqueChars] = useState("");
 
   const items = [
     { name: "To uppercase", value: toUpper },
-    { name: "To lowercase", value: toLower },
     { name: "Uppercase only", value: upperOnly },
+    { name: "To lowercase", value: toLower },
     { name: "Lowercase only", value: lowerOnly },
-    { name: "No punctuation", value: noPunctuation },
+    { name: "Alphanumeric only", value: noAlphanumeric },
+    { name: "Non-alphanumeric", value: alphanumericOnly },
     { name: "Unique chars", value: uniqueChars },
+    { name: "Non-unique chars", value: nonUniqueChars },
     { name: "Even chars", value: evenChars },
     { name: "Odd chars", value: oddChars },
     { name: "Reversed", value: reversed },
+    { name: "Ordered", value: ordered },
   ];
 
   function onlyUnique(value, index, self) {
@@ -34,11 +41,20 @@ export default function UpperCase({ string }) {
     setToLower(string.toLowerCase());
     setUpperOnly(string.match(/[A-Z]/g));
     setLowerOnly(string.match(/[a-z]/g));
-    setNoPunctuation(string.match(/[a-z0-9]/gi));
+    setNoAlphanumeric(string.match(/[a-z0-9]/gi));
+    setAlphanumericOnly(string.match(/[^a-z0-9]/gi));
     setUniqueChars(string.split("").filter(onlyUnique));
+    setNonUniqueChars(
+      string
+        .split("")
+        .filter((value, index, self) => !onlyUnique(value, index, self))
+        .filter(onlyUnique)
+    );
+
     setEvenChars(string.split("").filter((_, i) => i % 2 === 1));
     setOddChars(string.split("").filter((_, i) => i % 2 === 0));
     setReversed(string.split("").reverse());
+    setOrdered(string.split("").sort());
   }, [string]);
   return (
     <Card className="m-2 mb-3" border="primary">
@@ -57,7 +73,7 @@ export default function UpperCase({ string }) {
                       {item.name}
                     </CopyBadge>
                   </td>
-                  <td>{item.value}</td>
+                  <td className="content">{item.value}</td>
                 </tr>
               );
             })}
